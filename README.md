@@ -10,18 +10,18 @@ ifconfig
 netstats -nr
 ```
 ### fixar um ip
-`sudo nano /etc/dhcpcd.conf`  
-Inserir no início do arquivo:
+Edite o arquivo: `sudo nano /etc/dhcpcd.conf`  
+Insira no início do arquivo:
 ```
 interface wlan0
 static ip_address=
 static routers=
 static domain_name_servers=$ROUTER_IP 8.8.8.8 8.8.4.4
 ```
-Reiniciar a máquina:
+Reinicie a máquina:
 `sudo reboot`
 
-### requer as seguintes instalações
+### instalar dependências
 ```shell
 sudo apt-get update -y
 sudo apt-get upgrade -y
