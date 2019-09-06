@@ -27,7 +27,9 @@ sudo apt-get install mosquitto-clients -y
 sudo apt install git-all
 sudo python3 -m pip install paho-mqtt
 sudo python3 -m pip install Flask
+```
 ### configurar o mqtt
+```
 sudo nano /etc/mosquitto.conf
 	apagar a ultima linha
 	allow_anonymous false
