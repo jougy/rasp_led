@@ -1,7 +1,7 @@
 # rasp_led
 
-Projeto para estudo de uso de sensores no Raspberry Pi
-`
+Projeto para estudo de uso de sensores no Raspberry Pi  
+  
 
 ## Instruções
 ### ver os ip's
@@ -10,14 +10,17 @@ ifconfig
 netstats -nr
 ```
 ### fixar um ip
-```shell
-sudo nano /etc/dhcpcd.conf
-	interface wlan0
-	static ip_address=
-	static routers=
-	static domain_name_servers=$ROUTER_IP 8.8.8.8 8.8.4.4
-sudo reboot
+`sudo nano /etc/dhcpcd.conf`  
+Inserir no início do arquivo:
 ```
+interface wlan0
+static ip_address=
+static routers=
+static domain_name_servers=$ROUTER_IP 8.8.8.8 8.8.4.4
+```
+Reiniciar a máquina:
+`sudo reboot`
+
 ### requer as seguintes instalações
 ```shell
 sudo apt-get update -y
@@ -28,13 +31,17 @@ sudo apt install git-all
 sudo python3 -m pip install paho-mqtt
 sudo python3 -m pip install Flask
 ```
-### configurar o mqtt
+### configurar o mqtt  
+Edite o arquivo:
+`sudo nano /etc/mosquitto.conf`  
+Apague a ultima linha e substitua por:
 ```
-sudo nano /etc/mosquitto.conf
-	apagar a ultima linha
-	allow_anonymous false
-	password_file /etc/mosquitto/pwfile
-	listener 1883
+allow_anonymous false
+password_file /etc/mosquitto/pwfile
+listener 1883
+```
+Após editar o arquivo, configure o mosquitto:
+```
 sudo mosquitto_password -c /etc/mosquitto/pwfile [nome de usuario]
 cat /etc/mosquitto/pwfile
 ```
