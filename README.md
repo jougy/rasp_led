@@ -7,7 +7,7 @@ Projeto para estudo de uso de sensores no Raspberry Pi
 ### ver os ip's
 ```shell
 ifconfig
-netstats -nr
+netstat -nr
 ```
 ### fixar um ip
 Edite o arquivo: `sudo nano /etc/dhcpcd.conf`  
@@ -33,7 +33,7 @@ sudo python3 -m pip install Flask
 ```
 ### configurar o mqtt  
 Edite o arquivo:
-`sudo nano /etc/mosquitto.conf`  
+`sudo nano /etc/mosquitto/mosquitto.conf`  
 Apague a ultima linha e substitua por:
 ```
 allow_anonymous false
